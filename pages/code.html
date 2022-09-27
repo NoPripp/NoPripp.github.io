@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Code</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
+	</head>
+	<body class="is-preload">
+		<div class="boxtext">
+			<h3>GraphQL/API + JSON format till Spreadsheet</h3>
+			<p>Hämtar JSON data från ett GraphQL API och formaterar den till Google Spreadsheets. 
+				Funktionen ska läggas in som del av <a href="https://github.com/bradjasper/ImportJSON">bradjasper Import JSON script</a> . 
+				Jag har använt detta för att bygga kvittosystem och andra </p>
+		</div>
+        <pre>
+            <code>
+function ImportJSON_WordsAPI(before,  after,  cookie,  query,  parseOptions) {
+                
+let url =  &quot;adress till API&quot;;
+                
+let fetchOptions =  {
+	&quot;headers&quot;:  {
+		&quot;Content-Type&quot;:  &quot;application/json&quot;,
+		&quot;Accept-Encoding&quot;:  &quot;gzip, deflate, br&quot;,
+		&quot;method&quot;: &quot;post&quot;,
+		&quot;Accept&quot;:  &quot;application/json&quot;,
+		&quot;Connection&quot;:  &quot;keep-alive&quot;,
+		&quot;DNT&quot;:  &quot;1&quot;,
+		&quot;Origin&quot;:  &quot;domain&quot;,
+		&quot;Cookie&quot;:  cookie // tar bort krav på återinloggning - annan funktion //
+	},
+	&quot;payload&quot;: JSON.stringify({
+		query:  &quot;Ditt query&quot;,  // Definiera din f&ouml;rfr&aring;gan //
+		variables:  {  // N&ouml;dv&auml;ndiga variabler som skickas med i f&ouml;rfr&aring;gan //
+			&quot;username&quot;: &quot;ANV&Auml;NDARE&quot;, // Anv&auml;ndarnamn f&ouml;r access till servern //
+			&quot;password&quot;: &quot;L&Ouml;SENORD&quot;, // L&ouml;senordet //
+			&quot;locationIds&quot;: [&quot;Retailer1&quot;,  &quot;Retailer2&quot;,  &quot;Retailer3&quot;,
+			&quot;after&quot;:  after, // detta specificeras av anv&auml;ndaren i kalkylarket  //
+			&quot;before&quot;:  before
+		}
+	}),
+                
+}
+return ImportJSONAdvanced(url,  fetchOptions,  query,  parseOptions,  includeXPath_,  defaultTransform_);
+}
+            </code>
+        </pre>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
